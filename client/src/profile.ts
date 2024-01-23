@@ -29,6 +29,12 @@ interface userDataType {
     }
 }
 
+interface fullUserDataType extends userDataType {
+    killDeathRatio: number
+    winLossRatio: number
+    gamesPlayed: number
+}
+
 const userData: userDataType = {
     bestStreak: 57,
     kills: 804,
@@ -54,27 +60,35 @@ const userData: userDataType = {
         discord: "pythoncat1"
     }
 
+};
+
+const fullUserData: fullUserDataType = {
+    ...userData,
+    killDeathRatio: parseFloat((userData.kills / userData.deaths).toFixed(2)),
+    winLossRatio: parseFloat((userData.wins / userData.loses).toFixed(2)),
+    gamesPlayed: userData.wins + userData.loses
+};
+
+function camelToKebab(camelCase: string): string {
+    return camelCase.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
 }
 
-function updateStat<K extends keyof userDataType>(stat: K, value: userDataType[K]): void {
-    if (Array.isArray(value) || (typeof value === 'object' && value !== null)) {
-        console.error('Cannot update stat with an array or object');
+function updateStat<K extends keyof fullUserDataType>(stat: K, value: fullUserDataType[K]): void {
+    if (Array.isArray(value) || (typeof value === "object" && value !== null)) {
+        console.error("Cannot update stat with an array or object");
         return;
     }
-    $(`#${stat}`).text(value ?? "");
+    const kebabStat = camelToKebab(stat as string);
+    $(`#${kebabStat}`).text(value ?? "");
 }
 
-const killDeathRatio = (userData.kills / userData.deaths).toFixed(2);
-const winLossRatio = (userData.wins / userData.loses).toFixed(2);
-const gamesPlayed = userData.wins + userData.loses;
-$("#kill-death-ratio").text(killDeathRatio);
-$("#win-loss-ratio").text(winLossRatio);
-$("#games-played").text(gamesPlayed);
-
-updateStat('kills', userData.kills);
-updateStat('deaths', userData.deaths);
-updateStat('averageTimeSurvived', userData.averageTimeSurvived);
-updateStat('totalTimeSurvived', userData.totalTimeSurvived);
-updateStat('wins', userData.wins);
-updateStat('loses', userData.loses);
-updateStat('bestStreak', userData.bestStreak);
+updateStat("kills", fullUserData.kills);
+updateStat("deaths", fullUserData.deaths);
+updateStat("averageTimeSurvived", fullUserData.averageTimeSurvived);
+updateStat("totalTimeSurvived", fullUserData.totalTimeSurvived);
+updateStat("wins", fullUserData.wins);
+updateStat("loses", fullUserData.loses);
+updateStat("bestStreak", fullUserData.bestStreak);
+updateStat("killDeathRatio", fullUserData.killDeathRatio);
+updateStat("winLossRatio", fullUserData.winLossRatio);
+updateStat("gamesPlayed", fullUserData.gamesPlayed);
