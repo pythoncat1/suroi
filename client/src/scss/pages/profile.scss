@@ -1,0 +1,39 @@
+$green-higher: #49993e;
+$green-lower: #3e8235;
+
+@import "../utils/tabs.scss";
+@import "../palette.scss";
+
+.profile-container {
+  background-color: $green-lower;
+  height: 100vh;
+  width: 100vw;
+
+  .header {
+    position: relative; // add this line
+    background-color: $green-higher;
+    height: 150px; // adjust this value to change the height of the banner
+    width: 100%;
+  }
+
+  .profile-card {
+    background-color: $green-lower;
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .item {
+      background-color: $green-higher;
+      border-radius: 10px;
+      height: 100px;
+    }
+  }
+}

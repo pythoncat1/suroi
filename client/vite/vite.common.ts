@@ -14,7 +14,8 @@ const config: UserConfig = {
                 changelog: resolve(__dirname, "../changelog/index.html"),
                 news: resolve(__dirname, "../news/index.html"),
                 rules: resolve(__dirname, "../rules/index.html"),
-                editor: resolve(__dirname, "../editor/index.html")
+                editor: resolve(__dirname, "../editor/index.html"),
+                accounts: resolve(__dirname, "../accounts/index.html")
             }
         }
     },
