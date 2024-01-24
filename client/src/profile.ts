@@ -5,14 +5,26 @@ import "./scss/pages/client.scss";
 import "./scss/pages/profile.scss";
 import $ from "jquery";
 
-interface userDataType {
+interface SoloStats {
     bestStreak: number
     kills: number
     deaths: number
     totalTimeSurvived: number
-    averageTimeSurvived: number
     wins: number
-    loses: number
+    losses: number
+}
+
+interface TeamStats extends SoloStats { revivals: number }
+
+interface ComputedStats {
+    killDeathRatio: number
+    winLossRatio: number
+    gamesPlayed: number
+    averageTimeSurvived: number
+}
+
+interface BaseUserData {
+    userId: number
     username: string
     displayName: string
     lastOnline: number | null
@@ -20,29 +32,42 @@ interface userDataType {
     backgroundColor: string
     avatar: string
     banned: boolean
-    // banExpireTime: number | null
+    banExpireTime: number | null
     roles: string[]
     lastUpdated: number
     socials: {
         youtube: string | null
         discord: string | null
     }
+    games: {
+        solo: SoloStats
+        duo: TeamStats
+        squad: TeamStats
+    }
 }
 
-interface fullUserDataType extends userDataType {
-    killDeathRatio: number
-    winLossRatio: number
-    gamesPlayed: number
+interface NotYetDefinedComputedStats {
+    killDeathRatio?: number
+    winLossRatio?: number
+    gamesPlayed?: number
+    averageTimeSurvived?: number
 }
 
-const userData: userDataType = {
-    bestStreak: 57,
-    kills: 804,
-    deaths: 263,
-    totalTimeSurvived: 42503,
-    averageTimeSurvived: 271,
-    wins: 300,
-    loses: 57,
+interface PartialUserData extends BaseUserData, NotYetDefinedComputedStats {
+    wins: number
+    losses: number
+    kills: number
+    deaths: number
+    totalTimeSurvived: number
+    games: {
+        solo: SoloStats & ComputedStats
+        duo: TeamStats & ComputedStats
+        squad: TeamStats & ComputedStats
+    }
+}
+
+const baseUserData: BaseUserData = {
+    userId: 1,
     username: "MiloCat#0000",
     displayName: "MiloCat",
     lastOnline: null,
@@ -50,7 +75,7 @@ const userData: userDataType = {
     backgroundColor: "ffff00",
     avatar: "dab",
     banned: false,
-    // banExpireTime: null,
+    banExpireTime: null,
     roles: [
         "dev"
     ],
@@ -58,37 +83,73 @@ const userData: userDataType = {
     socials: {
         youtube: null,
         discord: "pythoncat1"
+    },
+    games: {
+        solo: {
+            bestStreak: 57,
+            kills: 804,
+            deaths: 263,
+            totalTimeSurvived: 42503,
+            wins: 300,
+            losses: 57
+        },
+        duo: {
+            bestStreak: 57,
+            kills: 804,
+            deaths: 263,
+            totalTimeSurvived: 42503,
+            wins: 300,
+            losses: 57,
+            revivals: 34
+        },
+        squad: {
+            bestStreak: 57,
+            kills: 804,
+            deaths: 263,
+            totalTimeSurvived: 42503,
+            wins: 300,
+            losses: 57,
+            revivals: 34
+        }
     }
-
 };
 
-const fullUserData: fullUserDataType = {
-    ...userData,
-    killDeathRatio: parseFloat((userData.kills / userData.deaths).toFixed(2)),
-    winLossRatio: parseFloat((userData.wins / userData.loses).toFixed(2)),
-    gamesPlayed: userData.wins + userData.loses
+function computeStats(stats: PartialUserData | SoloStats | TeamStats): ComputedStats {
+    const gamesPlayed = stats.wins + stats.losses;
+    return {
+        killDeathRatio: stats.kills / stats.deaths,
+        winLossRatio: stats.wins / stats.losses,
+        gamesPlayed,
+        averageTimeSurvived: stats.totalTimeSurvived / gamesPlayed
+    };
+}
+
+const partialUserData: PartialUserData = {
+    ...baseUserData,
+    wins: baseUserData.games.solo.wins + baseUserData.games.duo.wins + baseUserData.games.squad.wins,
+    losses: baseUserData.games.solo.losses + baseUserData.games.duo.losses + baseUserData.games.squad.losses,
+    kills: baseUserData.games.solo.kills + baseUserData.games.duo.kills + baseUserData.games.squad.kills,
+    deaths: baseUserData.games.solo.deaths + baseUserData.games.duo.deaths + baseUserData.games.squad.deaths,
+    totalTimeSurvived: baseUserData.games.solo.totalTimeSurvived + baseUserData.games.duo.totalTimeSurvived + baseUserData.games.squad.totalTimeSurvived,
+    games: {
+        solo: {
+            ...baseUserData.games.solo,
+            ...computeStats(baseUserData.games.solo)
+        },
+        duo: {
+            ...baseUserData.games.duo,
+            ...computeStats(baseUserData.games.duo)
+        },
+        squad: {
+            ...baseUserData.games.squad,
+            ...computeStats(baseUserData.games.squad)
+        }
+    }
 };
 
-function camelToKebab(camelCase: string): string {
-    return camelCase.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
+const fullUserData: PartialUserData & ComputedStats = {
+    ...partialUserData,
+    ...computeStats(partialUserData)
 }
 
-function updateStat<K extends keyof fullUserDataType>(stat: K, value: fullUserDataType[K]): void {
-    if (Array.isArray(value) || (typeof value === "object" && value !== null)) {
-        console.error("Cannot update stat with an array or object");
-        return;
-    }
-    const kebabStat = camelToKebab(stat as string);
-    $(`#${kebabStat}`).text(value ?? "");
-}
-
-updateStat("kills", fullUserData.kills);
-updateStat("deaths", fullUserData.deaths);
-updateStat("averageTimeSurvived", fullUserData.averageTimeSurvived);
-updateStat("totalTimeSurvived", fullUserData.totalTimeSurvived);
-updateStat("wins", fullUserData.wins);
-updateStat("loses", fullUserData.loses);
-updateStat("bestStreak", fullUserData.bestStreak);
-updateStat("killDeathRatio", fullUserData.killDeathRatio);
-updateStat("winLossRatio", fullUserData.winLossRatio);
-updateStat("gamesPlayed", fullUserData.gamesPlayed);
+console.log(fullUserData.averageTimeSurvived);
