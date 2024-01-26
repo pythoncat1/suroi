@@ -8,7 +8,7 @@
    height="517.6745"
    viewBox="0 0 575 517.6745"
    sodipodi:docname="pine_tree_winter.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -252,12 +252,12 @@
      inkscape:pageshadow="0"
      showgrid="false"
      inkscape:zoom="1.2623188"
-     inkscape:cx="383.42135"
-     inkscape:cy="344.6039"
-     inkscape:window-width="2560"
-     inkscape:window-height="1372"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:cx="383.02527"
+     inkscape:cy="345.00001"
+     inkscape:window-width="1920"
+     inkscape:window-height="1166"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer-MC0" />
   <g
@@ -267,7 +267,8 @@
      transform="translate(-0.0623924,-1.725e-5)">
     <g
        id="g937"
-       transform="matrix(0.75025288,0,0,0.75025288,0.01558232,4.3081377e-6)">
+       transform="matrix(0.75025288,0,0,0.75025288,0.01558232,4.3081377e-6)"
+       style="opacity:0.25">
       <g
          opacity="0.9487"
          id="g46"

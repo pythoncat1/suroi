@@ -7,7 +7,7 @@
    viewBox="0 0 227.69172 108.11246"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    sodipodi:docname="mobile_home_ceiling.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,11 +25,11 @@
      inkscape:document-units="px"
      inkscape:zoom="0.75150432"
      inkscape:cx="216.23296"
-     inkscape:cy="429.13925"
-     inkscape:window-width="2560"
-     inkscape:window-height="1372"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:cy="430.46991"
+     inkscape:window-width="1920"
+     inkscape:window-height="1166"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -40,7 +40,8 @@
      id="layer1"
      transform="translate(-10.054189,-109.27292)">
     <g
-       id="g2">
+       id="g2"
+       style="opacity:0.25">
       <path
          id="rect1"
          style="fill:#a8a8a8;stroke:#595959;stroke-width:3.06255;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"

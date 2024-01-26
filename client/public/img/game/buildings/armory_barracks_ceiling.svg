@@ -7,7 +7,7 @@
    viewBox="0 0 273.88374 454.53757"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    sodipodi:docname="armory_barracks_ceiling.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,13 +23,13 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="0.5313938"
-     inkscape:cx="492.10209"
-     inkscape:cy="755.56019"
-     inkscape:window-width="2560"
-     inkscape:window-height="1372"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:zoom="0.37575216"
+     inkscape:cx="-57.218567"
+     inkscape:cy="906.18242"
+     inkscape:window-width="1920"
+     inkscape:window-height="1166"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -41,7 +41,8 @@
      transform="translate(70.379155,46.566665)">
     <g
        id="g89510"
-       transform="translate(1683.5981,-754.32354)">
+       transform="translate(1683.5981,-754.32354)"
+       style="opacity:0.25">
       <path
          id="path89470"
          style="opacity:1;fill:#405f3a;fill-opacity:1;stroke:#1f2d1a;stroke-width:2.00698;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"

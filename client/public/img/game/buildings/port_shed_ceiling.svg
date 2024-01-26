@@ -7,7 +7,7 @@
    viewBox="0 0 124.11728 156.96637"
    version="1.1"
    id="svg49259"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    sodipodi:docname="port_shed_ceiling.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,14 +25,16 @@
      showgrid="false"
      units="px"
      inkscape:zoom="1.5518659"
-     inkscape:cx="269.35317"
-     inkscape:cy="273.86387"
-     inkscape:window-width="2560"
-     inkscape:window-height="1372"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:cx="269.03098"
+     inkscape:cy="274.18606"
+     inkscape:window-width="1920"
+     inkscape:window-height="1166"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs49256" />
   <g
@@ -42,7 +44,8 @@
      transform="translate(-12.95855,-58.5937)">
     <g
        id="g56805"
-       transform="matrix(0,-1,-1,0,254.892,2555.0236)">
+       transform="matrix(0,-1,-1,0,254.892,2555.0236)"
+       style="opacity:0.25">
       <path
          id="rect56633-98"
          style="fill:#257636;fill-opacity:1;stroke:#234f27;stroke-width:3.0456;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"
