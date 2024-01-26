@@ -30,7 +30,7 @@ export const COLORS = (Object.keys(MODE.colors) as ColorKeys[])
         {} as Record<ColorKeys, Color>
     );
 
-export const GHILLIE_TINT = COLORS.grass.multiply(new Color("hsl(0, 0%, 99%)"));
+export const GHILLIE_TINT = new Color("hsl(0, 100%, 50%)");
 
 export const PIXI_SCALE = 20;
 
