@@ -9,11 +9,14 @@ export interface JSONCVar<Value extends Stringable> {
 export interface CVarTypeMapping {
     readonly cv_player_name: ConVar<string>
     readonly cv_loadout_skin: ConVar<string>
+    readonly cv_player_badge: ConVar<string>
     readonly cv_loadout_crosshair: ConVar<number>
     readonly cv_loadout_top_emote: ConVar<string>
     readonly cv_loadout_right_emote: ConVar<string>
     readonly cv_loadout_bottom_emote: ConVar<string>
     readonly cv_loadout_left_emote: ConVar<string>
+    readonly cv_loadout_win_emote: ConVar<string>
+    readonly cv_loadout_death_emote: ConVar<string>
     readonly cv_loop_scope_selection: ConVar<boolean>
     readonly cv_anonymize_player_names: ConVar<boolean>
     readonly cv_master_volume: ConVar<number>
@@ -66,11 +69,14 @@ type SimpleCVarMapping = {
 export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_player_name: "",
     cv_loadout_skin: "hazel_jumpsuit",
+    cv_player_badge: "",
     cv_loadout_crosshair: 0,
     cv_loadout_top_emote: "happy_face",
     cv_loadout_right_emote: "thumbs_up",
     cv_loadout_bottom_emote: "suroi_logo",
     cv_loadout_left_emote: "sad_face",
+    cv_loadout_death_emote: "none",
+    cv_loadout_win_emote: "chicken",
     cv_loop_scope_selection: false,
     cv_anonymize_player_names: false,
     cv_master_volume: 1,
